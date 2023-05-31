@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+{{#each items}}
+<head>
+    {{#each this }}
+    <title>Toy Toon - Ages {{this.ages}} </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- CSS FILES -->
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tillana:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Bootstrap v5 -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap icons -->
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.compat.css">
+    <!-- AOS Scroll Animation -->
+    <link rel="stylesheet" href="/css/aos.css">
+    <!-- Load Styles -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- favicon icon -->
+    <link rel="icon" type="image/png" sizes="196x196" href="/images/favc-toys 1.png">
+
+    {{/each}}
+</head>
+{{/each }}
+
+<body>
+	<div class="Preloader"></div>
+
+	<nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand" href="/">
+				<img  class= "logov" src="/images/favc-toys 1.png">
+				<p>Toy Toon</p>
+			</a>
+            {{#if theUser }}
+
+            {{else}}
+			<a href="login" class="btn custom-btn d-lg-none ms-auto me-3">Login</a>
+			<a href="register" class="btn custom-btn none ms-auto me-3 "> Register Now  </a>
+            {{/if }}v
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav align-items-lg-center ms-auto  ">
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/Home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/Offer">Offers</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/ShopByAge">Shop By Age</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/ShopBrandCharacter">  Shop Brand & Character</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/About">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/ContactUs">Contact</a>
+					</li>
+				</ul>
+                        {{#if theUser }}
+                            <div class="dropdown-container animate animated animate zoomIn">
+                            <div class="dropdown-toggle click-dropdown rounded-pill">
+                            Welcome: {{theUser.name}} {{theUser.Sname}}
+                            </div>
+                            <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="/login/my-cart">My Cart </a></li>
+                                <li><a href="/login/user-profile">My Account</a></li>
+                                <li><a href="/login/logout">Log Out</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        {{else}}
+                        <a href="/login" class="btn custom-btn d-lg-block d-none">Login <i class="bi bi-box-arrow-in-right "></i></a>
+                        <a  id="cartIcon" href="/cart" class="custom-btn ms-4"><i class="bi bi-cart"></i></i></a>
+                        {{/if}}
+			</div>
+		</div>
+	</nav>
+
+    <!-- END nav -->
+
+    <div class="hero-wrap hero-bread " style="background-image: url('/images/pexels-polesie-toys-6129704.jpg');">
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-center justify-content-center">
+          <div class="col-md-9  text-center animate animated animate fadeInUp animate fast">
+          	<p class="text-dark"><span class="mr-2"><a href="/shop" class="text-dark">All</a></span> <span>/ Products</span></p>
+            <h1 class="mb-0">Shop By Age</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+    	<div class="container">
+    		<div class="row justify-content-center">
+    			<div class="col-md-10 mb-3 text-center animate animated animate fadeInUp animate fast">
+    				<ul class="product-category">
+    					<li><a href="/shop">All</a></li>
+    					<li><a href="/shop/ages-0-4"  class="active">By Ages</a></li>
+    					<li><a href="/brands">By Brand</a></li>
+    					<li><a href="/characters">By Character</a></li>
+    				</ul>
+                    <ul class="product-subcategory">
+                        <li><a href="/shop/ages-0-4">0-4</a></li>
+                        <li><a href="/shop/ages-5-7">5-7</a></li>
+                        <li><a href="/shop/ages-8-10" >8-10</a></li>
+                        <li><a href="/shop/ages-12" class="active">12+</a></li>
+                    </ul>
+    			</div>
+    		</div>
+
+
+{{#each items}}
+<div class="row">
+	{{#each this }}
+    			<div class="col-md-6 col-lg-3  animate animated animate fadeInUp animate fast">
+    				<div class="product">
+    					<a href="/productSingle/{{this._id}}" class="img-prod"><img class="image-popup " src="{{this.productImg}}" alt="ProductImg">
+    						<span class="status">30%</span>
+    						<div class="overlay"></div>
+    					</a>
+    					<div class="text py-3 pb-4 px-3 text-center">
+    						<h3><a href="/productSingle/{{this._id}}">{{this.productName}}</a></h3>
+                            <p class="text text-center">{{this.brand}}</p>
+                            <p class="text text-center">{{this.ages}}</p>
+                            <p class="text-dark text-center">{{this.info.productWorld}}</p>
+    						<div class="d-flex">
+    							<div class="pricing">
+		    						<p class="price"><span class="mr-2 price-dc">$1000</span><span class="price-sale">  ${{this.price}}</span></p>
+		    					</div>
+	    					</div>
+	    					<div class="bottom-area d-flex px-3 ">
+	    						<div class="m-auto d-flex">
+	    							<button class="custom-btn d-flex justify-content-center align-items-center ">
+                                        <small class="text-white px-3"><a href="/cart/{{this._id}}" style="width: auto; height:auto; background:none;"> Add to Cart</a></small>
+	    								<span><i class="bi bi-cart2"></i></span>
+	    							</button>
+    							</div>
+    						</div>
+    					</div>
+    				</div>
+    			</div>
+				{{/each}}
+	</div>
+{{/each}}
+
+
+
+    		</div> 
+    		<div class="row mt-5">
+        	<div class="col text-center">
+            <div class="pages mb-4">
+            <ul>
+                <li id="pg1" class="active"><a href="/shop/ages-12">1</a></li>
+                <li id="pg2"><a href="/shop/ages-12?page=2">2</a></li>
+                <li id="pg"><a href="/">3</a></li>
+                <li id="pg"><a href="/">4</a></li>
+                <li id="pg"><a href="#">5</a></li>
+            </ul>
+            </div>
+        	</div>
+        </div>
+    	</div>
+    </section>	
+
+	<footer class="site-footer">
+        <div class="site-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <h2 class="text-white mb-lg-0">Toy Toon </h2>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                        <ul class="social-icon d-flex justify-content-lg-end">
+                            <li class="social-icon-item">
+                                <a href="https://www.facebook.com/profile.php?id=100069308345587&sk=about_contact_and_basic_info" class="social-icon-link">
+                                    <span class="bi-facebook"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="https://instagram.com/toytoon.store?igshid=YmMyMTA2M2Y=" class="social-icon-link">
+                                    <span class="bi-instagram"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="" class="social-icon-link">
+                                    <span class="bi-whatsapp"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 mb-4 pb-2">
+                    <h5 class="site-footer-title mb-3">Links</h5>
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="/Home" class="site-footer-link">Home</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/Offer" class="site-footer-link">Offers</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/ShopByAge" class="site-footer-link">By Age</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/ShopBrandCharacter" class="site-footer-link">Brand & Char</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/About" class="site-footer-link">About</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/ContactUs" class="site-footer-link">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <h5 class="site-footer-title mb-3">Have a question?</h5>
+                    <p class="text-white d-flex mb-1">
+                        <a href="tel: 010xxxxxxxx" class="site-footer-link">
+                            Phone Number
+                        </a>
+                    </p>
+                    <p class="text-white d-flex">
+                        <a href="" class="site-footer-link">
+                            toytoonestore@gmail.com
+                        </a>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+                    <p class="text-white d-flex mt-3 mb-2">
+                        Alexandria University , MIS Dep , Alexandria, Egypt</p>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024 MIS Team</p>
+                        <p class="copyright-text">Distributed by: <a href="">MIS Team</a></p>
+                    </div>
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Terms & Conditions</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Privacy Policy</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Your Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <!-- Bootstrap v5 -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- JAVASCRIPT FILES -->
+	<script src="/js/shop.js"></script>
+    <script src="/js/jquery-3.6.4.min.js"></script>
+    <script src="/js/jquery.sticky.js"></script>
+    <!-- AOS Animation -->
+    <script src="/js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+</body>
+</html>

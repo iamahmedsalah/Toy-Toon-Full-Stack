@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title> Toy Toon - My Account </title>
+        <!-- CSS FILES -->
+        <!-- Load Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="/css/google-font.css" rel="stylesheet">
+        <!-- Bootstrap v5 -->
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Bootstrap icons -->
+        <link href="/css/bootstrap-icons.css" rel="stylesheet">
+        <!-- Animate.css -->
+        <link rel="stylesheet" href="/css/animate.compat.css">
+        <!-- AOS Scroll Animation -->
+        <link rel="stylesheet" href="/css/aos.css">
+    
+        <!-- Load Styles -->
+        <link href="/css/style.css" rel="stylesheet">
+        <!-- favicon icon -->
+        <link rel="icon" type="image/png" sizes="196x196" href="/images/favc-toys 1.png">
+    
+    </head>
+<body>
+    <!-- <div class="Preloader"></div> -->
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container" style="justify-content: space-between;">
+            <a class="navbar-brand" href="/">
+                <img  class= "logov" src="/images/favc-toys 1.png">
+                <p>Toy Toon</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav align-items-lg-center ms-auto col-md-9 ">
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/Home">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/Offer">Offers</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/ShopByAge">Shop By Age</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/ShopBrandCharacter">  Shop Brand & Character</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/About">About</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link click-scroll" href="/ContactUs">Contact</a>
+					</li>
+				</ul>
+                    {{#if theUser }}
+                            <div class="dropdown-container animate animated animate zoomIn">
+                            <div class="dropdown-toggle click-dropdown rounded-pill">
+                            Welcome: {{theUser.name}} {{theUser.Sname}}
+                            </div>
+                            <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="/login/my-cart">My Cart</a></li>
+                                <li><a href="/login/user-profile">My Account</a></li>
+                                <li><a href="/login/logout">Log Out</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        {{else}}
+                        <a href="login" class="btn custom-btn d-lg-block d-none">Login <i class="bi bi-box-arrow-in-right "></i></a>
+                        <a  id="cartIcon" href="cart" class="custom-btn ms-4"><i class="bi bi-cart"></i></i></a>
+                        {{/if}}
+    </nav>
+
+    {{#if theUser }}
+    <section class="profile-section section-padding ">
+        <div class="section-overlay"></div>
+        <div class="container">
+            <div class="container rounded-pill profile mt-5">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="d-flex flex-column align-items-center text-center p-3 py-5"> <i class="bi bi-person-circle" ></i><span class="font-weight-bold">{{theUser.name}} - {{theUser.Sname}} </span><span class="text-black-50">{{theUser.email}}</span><span>{{theUser.address}}</span><span>{{theUser.gender}}</span><span>{{theUser.phone}}</span></div>
+                        </div>
+                        <form class="col-md-8" action="/login/user-profile " method="POST">
+                        <div>
+                            <div class="p-4 py-5">
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <h6 class="col-md-8 text-center hd-profile">User information</h6>
+                                </div>
+                                <div class="row mt-2 ">
+                                    <div class="col-md-4 mt-2"><input type="text" class="form-control rounded-pill text-center" placeholder="First Name" value="" name="firstName" id="firstName"></div>
+                                    <div class="col-md-4 mt-2"><input type="text" class="form-control rounded-pill text-center" placeholder="Last Name" value=""  name="lastName" id="lastName" > </div>
+                                    <img  class="gif1" src="/images/201.gif"> 
+                                </div>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-md-4 mt-2"><input type="text" readonly="readonly" style="cursor: not-allowed;" class="form-control rounded-pill text-center" placeholder="Email" value="{{theUser.email}}"></div>
+                                    <div class="col-md-4 mt-2"><input type="text" class="form-control rounded-pill text-center"  placeholder="Phone number" value="" name="Phone" id="Phone"></div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-8 "><input type="text" class="form-control rounded-pill text-center" placeholder="Address" value=""name="Address" id="Address"></div>
+                                </div>
+                                <div class="col-md-8 mt-3 text-center"><button class="btn custom-btn" type="submit">Save Profile</button></div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </section>
+    {{/if}}
+
+    <footer class="site-footer">
+        <div class="site-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <h2 class="text-white mb-lg-0">Toy Toon </h2>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                        <ul class="social-icon d-flex justify-content-lg-end">
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-facebook"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-twitter"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-instagram"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-google"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="#" class="social-icon-link">
+                                    <span class="bi-whatsapp"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 mb-4 pb-2">
+                    <h5 class="site-footer-title mb-3">Links</h5>
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Home</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Offers</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">By Age</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Brand & Chara</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">About</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#" class="site-footer-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <h5 class="site-footer-title mb-3">Have a question?</h5>
+                    <p class="text-white d-flex mb-1">
+                        <a href="tel: 010xxxxxxxx" class="site-footer-link">
+                            Phone Number
+                        </a>
+                    </p>
+                    <p class="text-white d-flex">
+                        <a href="" class="site-footer-link">
+                            toytoonestore@gmail.com
+                        </a>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+                    <p class="text-white d-flex mt-3 mb-2">
+                        Alexandria University , MIS Dep , Alexandria, Egypt</p>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024 MIS Team</p>
+                        <p class="copyright-text">Distributed by: <a href="">MIS Team</a></p>
+                    </div>
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Terms & Conditions</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Privacy Policy</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Your Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="/js/jquery-3.6.4.min.js"></script>
+        <script src="/js/jquery.sticky.js"></script>
+        <!-- Bootstrap v5 -->
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/userProfile.js"></script>
+        
+        <!-- AOS Animation -->
+        <script src="/js/aos.js"></script>
+        <script>
+            AOS.init();
+        </script>
+    
+    
+</body>
+</html>

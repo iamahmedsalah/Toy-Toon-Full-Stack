@@ -1,0 +1,526 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title> Toy Toon </title>
+    <!-- CSS FILES -->
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="./css/google-font.css" rel="stylesheet">
+    <!-- Bootstrap v5 -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap icons -->
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="./css/animate.compat.css">
+    <!-- AOS Scroll Animation -->
+    <link rel="stylesheet" href="./css/aos.css">
+    <!-- Slick Slider -->
+    <link rel="stylesheet" href="./css/slick.css">
+    <link rel="stylesheet" href="./css/slick-theme.css">
+
+
+    <!-- Load Styles -->
+    <link href="css/style.css" rel="stylesheet">
+    <!-- favicon icon -->
+    <link rel="icon" type="image/png" sizes="196x196" href="./images/favc-toys 1.png">
+
+</head>
+
+<body>
+
+<div class="Preloader"></div>
+
+    <main>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="/">
+                        <img  class= "logov" src="./images/favc-toys 1.png">
+                        <p>Toy Toon</p>
+                    </a>
+            {{#if theUser }}
+
+            {{else}}
+			<a href="login" class="btn custom-btn d-lg-none ms-auto me-3">Login</a>
+			<a href="register" class="btn custom-btn none ms-auto me-3 "> Register Now  </a>
+            {{/if }}
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav align-items-lg-center ms-auto ">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Offers</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">Shop By Age</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">Shop Brand & Character</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_6">Contact Us </a>
+                            </li>
+                        </ul>   
+                        {{#if theUser }}
+                            <div class="dropdown-container animate animated animate zoomIn">
+                            <div class="dropdown-toggle click-dropdown rounded-pill">
+                            Welcome: {{theUser.name}} {{theUser.Sname}}
+                            </div>
+                            <div class="dropdown-menu">
+                            <ul>
+                                <li><a href="/login/my-cart">My Cart </a></li>
+                                <li><a href="/login/user-profile">My Account</a></li>
+                                <li><a href="/login/logout">Log Out</a></li>
+                            </ul>
+                            </div>
+                        </div>
+                        {{else}}
+                        <a href="login" class="btn custom-btn d-lg-block d-none">Login <i class="bi bi-box-arrow-in-right "></i></a>
+                        <a  id="cartIcon" href="cart" class="custom-btn ms-4"><i class="bi bi-cart"></i></i></a>
+                        {{/if}}
+                    </div>
+            </nav>
+
+
+
+        <section class="hero-section" id="section_1">
+            <div class="section-overlay"></div>
+            <div class="container d-flex justify-content-center align-items-center">
+                <div class="row">
+                    <div class="col-12 mt-auto mb-5 text-center">
+                        <h1 class="mb-5  animate animated animate pulse animate infinite"  > It's Play Time </h1>
+                        <small>Kids of all ages need playtime to develop their physical, <br> social and emotional skills. Take a look at our picks for infant and toddler play!</small>
+                        <h5 class="text-white mt-5 ">
+                            <a class="btn custom-btn smoothscroll " href="/shop" >Let's begin</a>
+                        </h5>
+                    </div>
+                        <div class="location-wrap mx-auto py-3 py-lg-0">
+                            <h5 class="text-white text-center mt-5">
+                                <i class="custom-icon bi bi-geo-alt-fill"></i>
+                                Shipping All Over Egypt
+                            </h5>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="video-wrap">
+                <video autoplay="" loop="" muted="" class="custom-video" poster="">
+                    <source src="./video/pexels-alena-darmel-7729968.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+
+        <section class="offer-section section-padding section-bg" id="section_2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mx-auto">
+                        <h2 class="text-center mb-4">Get Basket Ready ! </h2>
+                        <p class="text-center text-white mb-4 pb-4">It’s nearly time for egg dying and basket filling! Shop Pop basket picks.</p>
+                    </div>
+                    <div class="col-12 ">
+                        <div class="ByOffer">
+                            <div class="offer-slick animate animated animate pulse animate infinite "><a href="http://localhost:7000/productSingle/6466ce454ce469ca2db14d0d"> <img class="img-hide" src="./images/pop/65592-1.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="./images/Products/flash-54.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/646989c8beefd6ce5790496d"> <img class="img-hide"  src="./images/pop/65599-1.png"  alt="">
+                                <p class="text-center text-white">Super Girl</p>
+                                <img class="img-hover" src="./images/Products/supergirl-54.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/6466ce454ce469ca2db14d0b"> <img class="img-hide" src="./images/pop/65602-1.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="/images/Products/bat-5.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/646989c8beefd6ce57904967"> <img class="img-hide" src="./images/pop/67534-1.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="./images/Products/Death-Vider.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/646989c8beefd6ce57904971"> <img class="img-hide" src="./images/pop/60243_DragonBall-1WEB.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="./images/Products/black-panther-4.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/6466ce454ce469ca2db14d09"> <img class="img-hide" src="./images/pop/65723-13.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="./images/Products/spider-gwen-2.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/6466ce454ce469ca2db14d07"> <img class="img-hide" src="./images/pop/68390-1.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="./images/Products/HxH-KilluaZoldyck.png"  alt="">
+                            </a>
+                            </div>
+                            <div class="offer-slick animate animated animate pulse animate infinite"><a href="http://localhost:7000/productSingle/6466b8a6d71ef7000347ec9f"> <img class="img-hide" src="./images/pop/65722-1.png"  alt="">
+                                <p class="text-center text-white">550 EG</p>
+                                <img class="img-hover" src="./images/Products/spider-miles-2.png"  alt="">
+                            </a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="ByAge-section section-padding" id="section_3">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-12 text-center">
+                        <h2 class="ByAgeh2">Shop By Age </h1>
+                    </div >
+                    <div class="col-lg-3 col-12">
+                        <div class="ByAge-thumb">
+                            <div class="ByAge-image-wrap" data-aos="fade-right" data-aos-duration="1000"  data-aos-delay="50">
+                                <img src="./images/Ages/kid1.png"  class="ByAge-image  ">
+                            </div>
+                            <div class="ByAge-hover">
+                                <p class="mb-0 text-center">
+                                    <a href="/shop/ages-0-4">0-4 Years</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                        <div class="ByAge-thumb">
+                            <div class="ByAge-image-wrap" data-aos="fade-right" data-aos-duration="1000"  data-aos-delay="50">
+                                <img src="./images/Ages/kid2.png"  class="ByAge-image ">
+                            </div>
+                            <div class="ByAge-hover">
+                                <p class="mb-0 text-center"> 
+                                    <a href="/shop/ages-5-7">5-7 Years</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                        <div class="ByAge-thumb ">
+                            <div class="ByAge-image-wrap " data-aos="fade-left" data-aos-duration="1000"  data-aos-delay="50">
+                                <img src="./images/Ages/kid3.png"  class="ByAge-image ">
+                            </div>
+                            <div class="ByAge-hover">
+                                <p class="mb-0 text-center">
+                                    <a href="/shop/ages-8-10">8-10 Years</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 ">
+                        <div class="ByAge-thumb">
+                            <div class="ByAge-image-wrap" data-aos="fade-left" data-aos-duration="1000"  data-aos-delay="50">
+                                <img src="./images/Ages/kid4.png"  class="ByAge-image ">
+                            </div>
+                            <div class="ByAge-hover">
+                                <p class="mb-0 text-center">
+                                    <a href="/shop/ages-12">12+ Years</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section class="ByBrand-section section-padding" id="section_4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h2 class="ByBrandh2 mb-5">Shop By Brand</h1>
+                            <div class="ByBrand">
+                                <div class="item-slick"><a href="http://localhost:7000/brands/Baibe"> <img src="./images/Brands/barbie.png" style="height: 175px;" alt=""></a>
+                                    <p>Barbie</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands/pony"> <img src="./images/Brands/pony.png" alt=""></a>
+                                    <p> Poney </p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands/disney"> <img src="./images/Brands/disney.webp" alt=""></a>
+                                    <p>Disney</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands/fishers"> <img src="./images/Brands/fishers.png"  style="height: 175px;"alt=""></a>
+                                    <p>Fishers</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands/pop-funko"> <img src="./images/Brands/funko.png"  alt=""></a>
+                                    <p> Funko</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands/toy-toon"> <img src="./images/Brands/toy-toon.png" alt=""></a>
+                                    <p>Toy Toon</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands//lego"> <img src="./images/Brands/lego.png" alt=""></a>
+                                    <p> Lego</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/brands/marvel"> <img src="./images/Brands/marvel.png" alt=""></a>
+                                    <p> Marvel</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/single-brand/645fb65d0573e4abb4af305e"> <img src="./images/Brands/lil.png" alt=""></a>
+                                    <p>LOL</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/single-brand/645fb65d0573e4abb4af3060"> <img src="./images/Brands/nerfgear.png" alt=""></a>
+                                    <p> Nerf Gear</p>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="col-12 text-center">
+                        <h2 class="ByBrandh2  mb-5 p-4">Shop By Character</h1>
+                            <div class="ByBrand">
+                                <div class="item-slick"><a href="http://localhost:7000/characters/batman"> <img src="./images/Character/batman2004.webp" alt=""></a>
+                                    <p> Batman</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/hxh"> <img src="./images/Character/Hunter_Association_logo.webp" alt=""></a>
+                                    <p>HxH</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/flash"> <img src="./images/Character/Flash.webp " alt=""></a>
+                                    <p> Flash</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/barbie"> <img src="./images/Character/barbie3.png" alt=""></a>
+                                    <p>Barbie</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/darthvider"> <img src="./images/Character/Darth_vader_9.webp" alt=""></a>
+                                    <p>Darth Vider</p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/supergirl"> <img src="./images/Character/Supergirl_Rebirth.webp" alt=""></a>
+                                    <p> Super Girl </p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/transformers"> <img src="./images/Character/Prime.png" alt=""></a>
+                                    <p> Transformers </p>
+                                </div>
+                                <div class="item-slick"><a href="http://localhost:7000/characters/spiderman"> <img src="./images/Character/PeterParker.webp" alt=""></a>
+                                    <p> Spider Man </p>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <section class="about-section section-padding" id="section_5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12 mb-4 mb-lg-0 d-flex align-items-center">
+                        <div class="services-info">
+                            <h2 class="mb-4">About Toy Toon</h2>
+                            <p class="text-dark">Introducing the Toys We Love Sweepstakes packed with the coolest toys of the season! Sign up for
+                                Toys Toon emails and be entered for a chance to be one of our FIVE winners. No purchase necessary.</p>
+                            <h6 class="mt-4">Once in Lifetime Experience</h6>
+                            <p class="text-dark">You are not allowed to play and help to increase your children knowledge with games and toys.</p>
+                            <h6 class="mt-4">With Regards Our Team</h6>
+                            <p class="text-dark">Please tell your friends about our website. Thank you.</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-12">
+                        <div class="about-text-wrap" data-aos="flip-up" data-aos-duration="1500"  data-aos-delay="50">
+                            <img src="./images/child-handing-in-toys.png" class="about-image image-popup ">
+                            <div class="about-text-info d-flex">
+                                <div class="d-flex">
+                                    <i class="about-text-icon bi bi-emoji-wink"></i>
+                                </div>
+                                <div class="ms-4">
+                                    <h3>a happy moment</h3>
+                                    <p class="text-dark mb-0">your amazing Toys and games with us</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+
+
+        <section class="contact-section section-padding" id="section_6">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 mx-auto">
+                        <h2 class="text-center mb-4">Interested? Let's talk</h2>
+                        <nav class="d-flex justify-content-center">
+
+                        </nav>
+                        <div class="tab-content shadow-lg mt-5">
+                            <div class="">
+                                <div class="nav nav-tabs align-items-baseline justify-content-center">
+                                    <div class="backContact mx-2 my-2"> <h4 class="px-3 mt-2">Contact Form</h4></div>
+                                </div>
+                                <form class="custom-form contact-form mb-5 mb-lg-0" action="/contact" method="post" role="form">
+                                    <div class="contact-form-body">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <input type="text" name="contact-name" id="contact-name"
+                                                    class="form-control rounded-pill" placeholder="Full name" required>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-12">
+                                                <input type="email" name="contact-email" id="contact-email"
+                                                    pattern="[^ @]*@[^ @]*" class="form-control rounded-pill"
+                                                    placeholder="Email address" required>
+                                            </div>
+                                        </div>
+                                        <input type="text" name="contact-company" id="contact-company"
+                                            class="form-control rounded-pill my-4" placeholder="Company" required>
+                                        <textarea name="contact-message" rows="3" class="form-control rounded-pill  my-3"
+                                            id="contact-message" placeholder="Message"></textarea>
+                                        <div class="col-lg-4 col-md-10 col-8 mx-auto">
+                                            <button type="submit" class="form-control rounded-pill">Send message</button>
+                                        </div>
+                                            <div class="alert alert-success rounded-pill text-center mt-3 hide animate animated animate zoomIn" data-dismiss="alert" role="alert" id="success-alert" >
+                                                Success Email Send To Toy Toon Team 
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="site-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <h2 class="text-white mb-lg-0">Toy Toon </h2>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                        <ul class="social-icon d-flex justify-content-lg-end">
+                            <li class="social-icon-item">
+                                <a href="https://www.facebook.com/profile.php?id=100069308345587&sk=about_contact_and_basic_info" class="social-icon-link">
+                                    <span class="bi-facebook"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="https://instagram.com/toytoon.store?igshid=YmMyMTA2M2Y=" class="social-icon-link">
+                                    <span class="bi-instagram"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="" class="social-icon-link">
+                                    <span class="bi-whatsapp"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 mb-4 pb-2">
+                    <h5 class="site-footer-title mb-3">Links</h5>
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="#section_1" class="site-footer-link">Home</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#section_2" class="site-footer-link">Offers</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#section_3" class="site-footer-link">By Age</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#section_4" class="site-footer-link">Brand & Char</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#section_5" class="site-footer-link">About</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="#section_6" class="site-footer-link">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <h5 class="site-footer-title mb-3">Have a question?</h5>
+                    <p class="text-white d-flex mb-1">
+                        <a href="tel: 010xxxxxxxx" class="site-footer-link">
+                            Phone Number
+                        </a>
+                    </p>
+                    <p class="text-white d-flex">
+                        <a href="" class="site-footer-link">
+                            toytoonestore@gmail.com
+                        </a>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+                    <p class="text-white d-flex mt-3 mb-2">
+                        Alexandria University , MIS Dep , Alexandria, Egypt</p>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024 MIS Team</p>
+                        <p class="copyright-text">Distributed by: <a href="">MIS Team</a></p>
+                    </div>
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Terms & Conditions</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Privacy Policy</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Your Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <!-- Bootstrap v5 -->
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- JAVASCRIPT FILES -->
+    <script src="./js/jquery-3.6.4.min.js"></script>
+    <script src="./js/jquery.sticky.js"></script>
+    <script src="./js/main.js"></script>
+
+    {{!-- <script src="./js/click-scroll.js"></script> --}}
+
+    <!-- Slick Silder -->
+    <script src="./js/slick.min.js"></script>
+    <script src="./js/silder-brand.js"></script>
+    <script src="./js/silder-offers.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="./js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
+
+
+</body>
+
+</html>

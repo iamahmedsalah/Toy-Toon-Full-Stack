@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Toy Toon - Login </title>
+
+    <!-- CSS FILES -->
+    <!-- Load Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tillana:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="/css/animate.compat.css">
+    <!-- Bootstrap v5 -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap-icons.css" rel="stylesheet">
+    <!-- Load Styles -->
+    <link href="/css/style.css" rel="stylesheet">
+    <!-- favicon icon -->
+    <link rel="icon" type="image/png" sizes="196x196" href="/images/favc-toys 1.png">
+
+</head>
+
+<body>
+<div class="Preloader"></div>
+
+    <main>
+        <nav class="navbar">
+            <a class="navbar-brand-login" href="/">
+                <img  class= "logov" src="/images/favc-toys 1.png">
+                <p>Toy Toon</p>
+            </a>
+			<div id="hiding" class="py-5 text-white">
+				<div class="container">
+					<div class="row no-gutters d-flex align-items-start align-items-center px-md-0">
+						<div class="col-lg-12 d-block">
+							<div class="row d-flex">
+								<div class="col-md pr-4 d-flex topper align-items-center">
+									<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span></div>
+									<span class="text">+ 1235 2355 98</span>
+								</div>
+								<div class="col-md pr-4 d-flex topper align-items-center">
+									<div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-paper-plane"></span></div>
+									<span class="text">toytoonestore@gmail.com</span>
+								</div>
+								<div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
+									<span class="text">4-7 Business days delivery &amp; Free Returns</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+            <div class="social-buttons">
+                <a href="https://www.facebook.com/profile.php?id=100069308345587&sk=about_contact_and_basic_info" class="social-button social-button--facebook" aria-label="Facebook">
+                    <i class="bi bi-facebook"></i>
+                </a>
+                <a href="#" class="social-button social-button--whatsapp" aria-label="whatsapp">
+                    <i class="bi bi-whatsapp"></i>
+                </a>
+                <a href="https://instagram.com/toytoon.store?igshid=YmMyMTA2M2Y=" class="social-button social-button--instagram" aria-label="instagram">
+                    <i class="bi bi-instagram"></i>
+                </a>
+        </nav>
+        
+        
+        
+        <section class="login-section section-padding ">
+            <div class="section-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- The image half -->
+                    <div class="col-md-6 d-none d-md-flex bg-image-login animate animated animate backInLeft"></div>
+                    <!-- The content half -->
+                    <div class="col-md-6 login animate animated animate backInLeft"> 
+                        <div class=" d-flex align-items-center py-5"> 
+                            <div class="container">
+                                <div class="row"> 
+                                    <div class=" col-lg-10 col-xl-7 mx-auto">    
+                                        <h4 class="display-4"><img  class= "logov" src="/images/favc-toys 1.png"> Sign in </h4>
+                                        <form action="login" method="post" role="form" class="needs-validation" novalidate >
+                                            <div class="form-group mt-5 mb-3 text-center"> 
+                                                <label  class="px-4"  for="inputEmail"> Enter Email</label>
+                                                <input  id="inputEmail" name="userEmail"  type="email" placeholder="Email address" required="" autofocus="" class="form-control text-center rounded-pill border-0 shadow-lg px-4">
+                                                <div class="valid-feedback text-center mb-3 animate animated animate zoomIn">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback text-center mb-3 animate animated animate zoomIn">
+                                                    Please enter  your email.
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3 text-center">   
+                                                <label class="px-4" for="inputPassword"> Enter Password</label>
+                                                <i class="bi bi-eye-slash form-check-label" id="togglePassword"></i>
+                                                <input id="inputPassword" name="userPassword" type="password" placeholder="Password" required="" class="form-control text-center rounded-pill border-0 shadow-lg px-4">
+                                                <div class="valid-feedback text-center mb-3 animate animated animate zoomIn">
+                                                    Looks good!
+                                                </div>
+                                                <div class="invalid-feedback text-center mb-3 animate animated animate zoomIn">
+                                                    Please enter  your password. <br> Must contain 1 uppercase and 1 lowercase <br>
+                                                    Must contain at least 8 or more characters or number. 
+                                                </div>
+                                            </div>
+                                            <div class="custom-control mb-3 text-center ">
+                                                <a class=" ms-2 me-5" href="foregt-password">Forget Password..?</a>
+                                                <a href="register">Sigin Up</a>
+                                            </div>
+                                            <button type="submit" class="custom-btn-Recovery">Sign in</button>
+                                            {{#if msg}}
+                                                <div class=" alert alert-danger rounded-pill text-center mt-3 animate animated animate zoomIn" role="alert" >
+                                                {{msg}} 
+                                                </div>
+                                            {{/if}}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+    <footer class="site-footer">
+        <div class="site-footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-12">
+                        <h2 class="text-white mb-lg-0">Toy Toon </h2>
+                    </div>
+                    <div class="col-lg-6 col-12 d-flex justify-content-lg-end align-items-center">
+                        <ul class="social-icon d-flex justify-content-lg-end">
+                            <li class="social-icon-item">
+                                <a href="https://www.facebook.com/profile.php?id=100069308345587&sk=about_contact_and_basic_info" class="social-icon-link">
+                                    <span class="bi-facebook"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="https://instagram.com/toytoon.store?igshid=YmMyMTA2M2Y=" class="social-icon-link">
+                                    <span class="bi-instagram"></span>
+                                </a>
+                            </li>
+                            <li class="social-icon-item">
+                                <a href="" class="social-icon-link">
+                                    <span class="bi-whatsapp"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-12 mb-4 pb-2">
+                    <h5 class="site-footer-title mb-3">Links</h5>
+                    <ul class="site-footer-links">
+                        <li class="site-footer-link-item">
+                            <a href="/Home" class="site-footer-link">Home</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/Offer" class="site-footer-link">Offers</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="ShopByAge" class="site-footer-link">By Age</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/ShopBrandCharacter" class="site-footer-link">Brand & Char</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/About" class="site-footer-link">About</a>
+                        </li>
+                        <li class="site-footer-link-item">
+                            <a href="/ContactUs" class="site-footer-link">Contact Us</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-6 col-12 mb-4 mb-lg-0">
+                    <h5 class="site-footer-title mb-3">Have a question?</h5>
+                    <p class="text-white d-flex mb-1">
+                        <a href="tel: 010xxxxxxxx" class="site-footer-link">
+                            Phone Number
+                        </a>
+                    </p>
+                    <p class="text-white d-flex">
+                        <a href="" class="site-footer-link">
+                            toytoonestore@gmail.com
+                        </a>
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6 col-11 mb-4 mb-lg-0 mb-md-0">
+                    <h5 class="site-footer-title mb-3">Location</h5>
+                    <p class="text-white d-flex mt-3 mb-2">
+                        Alexandria University , MIS Dep , Alexandria, Egypt</p>
+                </div>
+            </div>
+        </div>
+        <div class="site-footer-bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-12 mt-5">
+                        <p class="copyright-text">Copyright © 2024 MIS Team</p>
+                        <p class="copyright-text">Distributed by: <a href="">MIS Team</a></p>
+                    </div>
+                    <div class="col-lg-8 col-12 mt-lg-5">
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Terms & Conditions</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Privacy Policy</a>
+                            </li>
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Your Feedback</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- JAVASCRIPT FILES -->
+    <script src="/js/jquery-3.6.4.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/jquery.sticky.js"></script>
+    <script src="/js/login.js"></script>
+
+</body>
+
+</html>
