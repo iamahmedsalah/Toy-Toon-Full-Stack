@@ -83,10 +83,7 @@ router.post('/',async (req, res)=>{
         res.render('emailUser',{ registerToCon:user.email})
     }
     catch{
-                    if(err){
-                console.log('This email already exist');
-                req.flash('error','This email already exist')
-                res.redirect('register')
+
         })
     }
 })
