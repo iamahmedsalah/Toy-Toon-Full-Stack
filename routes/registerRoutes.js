@@ -5,10 +5,17 @@ const bcrypt = require('bcrypt');
 const crypto = require('crypto');
 const nodemailer = require("nodemailer");
 const path = require("path");
-const { hbsEmail} = require("handlebars-email");
+const { hbsEmail , hbsEmailConfig } = require("handlebars-email");
 const {check, validationResult} = require('express-validator')
 
 
+
+
+
+hbsEmailConfig({
+  views: "views/email/",
+  extname: ".hbs",
+});
 
 
 
