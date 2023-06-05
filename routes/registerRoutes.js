@@ -80,17 +80,17 @@ router.post('/',async (req, res)=>{
                 res.send('success')
             }
         })
-//         res.render('emailUser',{ registerToCon:user.email})
+        res.render('emailUser',{ registerToCon:user.email})
     }
-    catch{ res.render('emailUser',{ registerToCon:user.email})
-//             Users.findOne({email:req.body.registerEmail}).then((err)=>{
-//             if(err){
-//                 console.log('This email already exist');
-//                 req.flash('error','This email already exist')
-//                 res.redirect('register')
-//             }
-//         })
-    }
+//     catch{ res.render('emailUser',{ registerToCon:user.email})
+// //             Users.findOne({email:req.body.registerEmail}).then((err)=>{
+// //             if(err){
+// //                 console.log('This email already exist');
+// //                 req.flash('error','This email already exist')
+// //                 res.redirect('register')
+// //             }
+// //         })
+//     }
 })
 
 
