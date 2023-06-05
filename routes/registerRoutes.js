@@ -43,7 +43,7 @@ router.post('/',async (req, res)=>{
 
 
     const{registerFname,registerSurname,registerEmail,registerPhone,TicketForm,registerPassword} = req.body;
-//     try{
+    try{
 
         console.log(req.body)
         const user = new Users({
@@ -62,7 +62,7 @@ router.post('/',async (req, res)=>{
         const newUser = await user.save()
         //send verfication mail to user
         const context = { UserName:`${user.name} ${user.Sname}`, verfied:`<a href="http://${req.headers.host}/verifyUser?token=${user.emailToken}" target="_blank" style="font-size: 20px; font-family: Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; color: #ffffff; text-decoration: none; padding: 15px 25px; border-radius: 30px; border: 1px solid #EE5007; display: inline-block; " > Verfiy</a>` };
-        const template = path.join("views", "email", "confirm.hbs");
+//         const template = path.join("views", "email", "confirm.hbs");
         const eMailTemplate = hbsEmail("confirm", context);
         
         const mailOptions = {
@@ -81,8 +81,8 @@ router.post('/',async (req, res)=>{
             }
         })
         res.render('emailUser',{ registerToCon:user.email})
-//     }
-//     catch{ 
+    }
+    catch{ 
             Users.findOne({email:req.body.registerEmail}).then((err)=>{
              if(err){
                 console.log('This email already exist');
@@ -90,7 +90,7 @@ router.post('/',async (req, res)=>{
                 res.redirect('register')
             }
         })
-//     }
+    }
 
 })
 
