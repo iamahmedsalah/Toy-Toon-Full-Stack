@@ -43,7 +43,7 @@ router.post('/',async (req, res)=>{
 
 
     const{registerFname,registerSurname,registerEmail,registerPhone,TicketForm,registerPassword} = req.body;
-    try{
+//     try{
 
         console.log(req.body)
         const user = new Users({
@@ -81,16 +81,16 @@ router.post('/',async (req, res)=>{
             }
         })
         res.render('emailUser',{ registerToCon:user.email})
-    }
-    catch{ 
-//             Users.findOne({email:req.body.registerEmail}).then((err)=>{
-//             if(err){
-//                 console.log('This email already exist');
-//                 req.flash('error','This email already exist')
-//                 res.redirect('register')
-//             }
-//         })
-    }
+//     }
+//     catch{ 
+            Users.findOne({email:req.body.registerEmail}).then((err)=>{
+             if(err){
+                console.log('This email already exist');
+                req.flash('error','This email already exist')
+                res.redirect('register')
+            }
+        })
+//     }
 
 })
 
