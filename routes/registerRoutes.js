@@ -80,9 +80,9 @@ router.post('/',async (req, res)=>{
                 res.send('success')
             }
         })
-        res.render('emailUser',{ registerToCon:user.email})
+//         res.render('emailUser',{ registerToCon:user.email})
     }
-    catch{
+    catch{ res.render('emailUser',{ registerToCon:user.email})
 //             Users.findOne({email:req.body.registerEmail}).then((err)=>{
 //             if(err){
 //                 console.log('This email already exist');
