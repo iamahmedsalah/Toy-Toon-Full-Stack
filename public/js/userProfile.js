@@ -72,3 +72,81 @@ function closeDropdown() {
     });
 }
 
+
+document.querySelector('#firstName').addEventListener('blur', validateUsername);
+document.querySelector('#lastName').addEventListener('blur', validateSurname);
+document.querySelector('#Phone').addEventListener('blur', validatePhone);
+
+
+const reSpaces = /^\S*$/;
+const reFSname = /^[a-z ,.'-]+$/i
+
+function validateUsername(e) {
+  const username = document.querySelector('#firstName');
+  if (reFSname.test(username.value)) {
+    username.classList.remove('is-invalid');
+    username.classList.add('is-valid');
+    return true;
+  } else {
+    username.classList.remove('is-valid');
+
+    username.classList.add('is-invalid');
+    return false;
+  }
+}
+function validateSurname(e) {
+  const secname = document.querySelector('#lastName');
+  if (reFSname.test(secname.value)) {
+    secname.classList.remove('is-invalid');
+    secname.classList.add('is-valid');
+    return true;
+  } else {
+    secname.classList.remove('is-valid');
+
+    secname.classList.add('is-invalid');
+    return false;
+  }
+}
+
+
+
+function validatePhone() {
+  const Phone = document.querySelector('#Phone');
+  const rec = /^01[0125][0-9]{8}$/
+  if (rec.test(Phone.value)) {
+    Phone.classList.remove('is-invalid');
+    Phone.classList.add('is-valid');
+    return true;
+  } else {
+    Phone.classList.remove('is-valid');
+
+    Phone.classList.add('is-invalid');
+    return false;
+  }
+
+}
+
+
+
+
+(function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity() ||
+         !validateUsername() || !validateSurname() || !validatePhone()) {
+          event.preventDefault()
+          event.stopPropagation()
+        } else
+          form.classList.add('was-validated')
+      }, false)
+    })
+})()
+
+

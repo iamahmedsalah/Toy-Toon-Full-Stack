@@ -1,6 +1,7 @@
 var express = require('express');
 const { loginRequired } = require('../config/jwt')
 const Users = require('../models/userModel');
+const Cart = require('../models/cartModel');
 const jwt = require('jsonwebtoken');
 const nodemailer = require("nodemailer");
 const { hbsEmail} = require("handlebars-email");
@@ -35,11 +36,13 @@ router.get('/', async(req, res, next)=> {
       const userId = getTokenPayload(token);
       console.log(userId);
 
+
       const TheUser = await Users.findById(userId)
+      const cart = await Cart.findById(userId)
       console.log(TheUser)
+      console.log(cart)
 
-
-      res.render('index',  { title: 'Toy Toon' , theUser:TheUser});
+      res.render('index',  { title: 'Toy Toon' , theUser:TheUser , userCart:cart });
 });
 
 

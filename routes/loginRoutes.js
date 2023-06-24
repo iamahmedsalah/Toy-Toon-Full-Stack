@@ -40,10 +40,10 @@ router.post('/', verifyEmail ,async (req, res) => {
                 console.log(token)
                 console.log(findUser)
 
-                
+                const cart = await Cart.findById(findUser.id);
                 // store token 
                 res.cookie('access-token' , token )
-                res.render('index', {theUser:findUser})
+                res.render('index', {theUser:findUser , userCart:cart})
 
 
                 router.get('/my-cart', async (req,res)=>{
@@ -58,7 +58,7 @@ router.post('/', verifyEmail ,async (req, res) => {
                 router.get('/user-profile', (req, res) => {
                     var msgErr= req.flash('error');
 
-                    res.render('myAcounnt', {msg: msgErr , theUser:findUser}  );
+                    res.render('myAcounnt', {msg: msgErr , theUser:findUser ,userCart:cart}  );
                 });
 
                 router.post('/user-profile', async (req, res) => {
@@ -77,7 +77,7 @@ router.post('/', verifyEmail ,async (req, res) => {
                         updatedUser.address = Address
                         await updatedUser.save();
                         console.log(updatedUser)
-                        res.render('myAcounnt' ,{theUser:updatedUser})
+                        res.render('myAcounnt' ,{theUser:updatedUser , userCart:cart})
                         } else {
                           // User not found
                         res.status(404).json({ message: 'User not found' });

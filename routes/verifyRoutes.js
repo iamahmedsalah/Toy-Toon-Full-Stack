@@ -17,8 +17,8 @@ router.get('/', async (req, res) => {
             await user.save()
             res.redirect('/login')
         }else{
-            res.send('email is not verfiy')
-            console.log(' email is not verfiy')
+            res.send('email is verfiy')
+            console.log(' email is verfiy')
         }
 
     }

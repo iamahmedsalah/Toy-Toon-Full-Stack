@@ -83,7 +83,7 @@
                                         <form method="post" role="form"  class="needs-validation" novalidate>
                                             <div class="form-group mt-5 mb-3">
                                                 <label  class="EmailRecovery" for="inputEmail"> Enter Email</label>
-                                                <input  id="inputEmail" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill  text-center border-0 shadow-lg px-4">
+                                                <input  id="inputEmail" name="inputEmail" type="email" placeholder="Email address" required="" autofocus="" class="form-control rounded-pill  text-center border-0 shadow-lg px-4">
                                                 <div class="valid-feedback text-center mb-3 animate animated animate zoomIn">
                                                     Looks good!
                                                 </div>
@@ -93,8 +93,14 @@
                                             </div>
                                             <button type="submit" class="custom-btn-Recovery">Send Email</button>
                                             {{#if msg}}
-                                                <div class=" alert alert-success rounded-pill text-center mt-3 animate animated animate zoomIn  animate slow " role="alert" >
+                                            <div class=" alert alert-danger rounded-pill text-center mt-3 animate animated animate zoomIn  animate slow " role="alert" >
                                                 {{msg}} 
+                                                <small>{{email}}</small>
+                                            </div>
+                                            {{/if}}
+                                            {{#if msgScc}}
+                                                <div class=" alert alert-success rounded-pill text-center mt-3 animate animated animate zoomIn  animate slow " role="alert" >
+                                                {{msgScc}} 
                                                 <small>{{email}}</small>
                                                 </div>
                                             {{/if}}

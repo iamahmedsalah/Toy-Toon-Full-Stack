@@ -3,6 +3,7 @@ var router = express.Router();
 const jwt = require('jsonwebtoken');
 const Products = require('../models/allProducts');
 const Users = require('../models/userModel');
+const Cart = require('../models/cartModel');
 const { cookie } = require('express-validator');
 
 
@@ -26,8 +27,9 @@ router.get('/'  ,  async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
 
     Products.find().skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -37,7 +39,7 @@ router.get('/'  ,  async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('shop',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('shop',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart })
     }).catch((err)=>{
         console.log(err)
     })
@@ -65,7 +67,10 @@ router.get('/ages-0-4', async (req ,res) =>{
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
+
     
 
     Products.find({ages:'0-4'}).skip(skip).limit(limit).then((doc) => {
@@ -76,7 +81,7 @@ router.get('/ages-0-4', async (req ,res) =>{
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('byAgeA',{ items: prodcutGrid , page ,theUser:TheUser })
+        res.render('byAgeA',{ items: prodcutGrid , page ,theUser:TheUser , userCart:cart })
     }).catch((err)=>{
         console.log(err)
     })
@@ -105,8 +110,10 @@ router.get('/ages-5-7', async (req ,res) =>{
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
+
 
     Products.find({ages:'5-7'}).skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -116,7 +123,7 @@ router.get('/ages-5-7', async (req ,res) =>{
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('byAgeB',{ items: prodcutGrid , page, theUser:TheUser })
+        res.render('byAgeB',{ items: prodcutGrid , page, theUser:TheUser , userCart:cart })
     }).catch((err)=>{
         console.log(err)
     })
@@ -145,8 +152,10 @@ router.get('/ages-8-10', async (req ,res) =>{
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
+
 
     Products.find({ages:'8-10'}).skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -156,7 +165,7 @@ router.get('/ages-8-10', async (req ,res) =>{
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('byAgeC',{ items: prodcutGrid , page ,theUser:TheUser })
+        res.render('byAgeC',{ items: prodcutGrid , page ,theUser:TheUser , userCart:cart })
     }).catch((err)=>{
         console.log(err)
     })
@@ -183,8 +192,10 @@ router.get('/ages-12', async (req ,res) =>{
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
+
 
     Products.find({ages:'+12'}).skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -194,7 +205,7 @@ router.get('/ages-12', async (req ,res) =>{
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('byAgeD',{ items: prodcutGrid , page , theUser:TheUser})
+        res.render('byAgeD',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart})
     }).catch((err)=>{
         console.log(err)
     })

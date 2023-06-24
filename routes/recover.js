@@ -26,10 +26,11 @@ router.post('/', async (req, res) => {
     const { inputEmail } = req.body;
 
     // Check if the email exists in the database
-    const user = await Users.findOne({ inputEmail });
+    const user = await Users.findOne({email:inputEmail });
     if (!user) {
         // Handle the case when the email does not exist
-        return res.send('Email not found');
+        req.flash('error',`This Email not exist ${inputEmail}` )
+        return res.redirect('foregt-password')
     }
 
     // Generate a reset token and set its expiration time
@@ -72,15 +73,12 @@ router.post('/', async (req, res) => {
             return res.send('Error sending email');
         }
         console.log('Email sent: ' + info.response);
-        console.log('Password reset sent to  email');
-        Email= user.email
-        msgScc = 'Password reset sent to email '
-        res.render('forgetPass', { msg: msgScc, email:Email })
+        console.log(`Password reset sent to ${user.email} `);
+        res.render('forgetPass', { msgScc:' Password reset sent to email', email:user.email })
     });
     
 
 });
-
 
 
 

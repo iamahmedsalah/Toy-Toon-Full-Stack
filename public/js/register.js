@@ -80,7 +80,7 @@ function validateEmail(e) {
 
 function validatePhone() {
   const Phone = document.querySelector('#phone');
-  const rec = /^\d{10}$/;
+  const rec = /^01[0125][0-9]{8}$/
   if (rec.test(Phone.value)) {
     Phone.classList.remove('is-invalid');
     Phone.classList.add('is-valid');

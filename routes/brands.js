@@ -3,6 +3,7 @@ var router = express.Router();
 const Brands = require('../models/brandsModel');
 const Products = require('../models/allProducts');
 const Users = require('../models/userModel');
+const Cart = require('../models/cartModel');
 const jwt = require('jsonwebtoken');
 
 /* GET brand page. */
@@ -25,8 +26,10 @@ router.get('/', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
+
 
     Brands.find().skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -36,7 +39,7 @@ router.get('/', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('brands',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('brands',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -65,7 +68,9 @@ router.get('/fishers', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -77,7 +82,7 @@ router.get('/fishers', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page ,theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page ,theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -103,7 +108,9 @@ router.get('/pop-funko', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -115,7 +122,7 @@ router.get('/pop-funko', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page ,theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page ,theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -142,7 +149,9 @@ router.get('/toy-toon', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -154,7 +163,7 @@ router.get('/toy-toon', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page, theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page, theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -181,7 +190,9 @@ router.get('/disney', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -193,7 +204,7 @@ router.get('/disney', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page, theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page, theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -219,7 +230,9 @@ router.get('/pony', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -231,7 +244,7 @@ router.get('/pony', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -257,7 +270,9 @@ router.get('/marvel', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -269,7 +284,7 @@ router.get('/marvel', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -295,7 +310,9 @@ router.get('/lego', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -307,7 +324,7 @@ router.get('/lego', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -334,7 +351,9 @@ router.get('/baibe', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
 
@@ -346,7 +365,7 @@ router.get('/baibe', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleBrand',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })

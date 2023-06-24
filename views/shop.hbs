@@ -74,16 +74,18 @@
                             Welcome: {{theUser.name}} {{theUser.Sname}}
                             </div>
                             <div class="dropdown-menu">
+                                {{#if userCart}}
                             <ul>
-                                <li><a href="/login/my-cart">My Cart </a></li>
+                                <li><a href="/login/my-cart"><i class="bi bi-cart"></i> {{userCart.totalQuantity}} </a></li>
                                 <li><a href="/login/user-profile">My Account</a></li>
                                 <li><a href="/login/logout">Log Out</a></li>
                             </ul>
+                            {{/if}}
                             </div>
                         </div>
                         {{else}}
                         <a href="login" class="btn custom-btn d-lg-block d-none">Login <i class="bi bi-box-arrow-in-right "></i></a>
-                        <a  id="cartIcon" href="cart" class="custom-btn ms-4"><i class="bi bi-cart"></i></i></a>
+                        <a  id="cartIcon" href="cart" class="custom-btn ms-4"><i class="bi bi-cart"></i></a>
                         {{/if}}
 			</div>
 		</div>

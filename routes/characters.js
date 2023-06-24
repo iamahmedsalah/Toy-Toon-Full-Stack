@@ -3,6 +3,7 @@ var router = express.Router();
 const Character = require('../models/characterModel');
 const Products = require('../models/allProducts');
 const Users = require('../models/userModel');
+const Cart = require('../models/cartModel');
 const jwt = require('jsonwebtoken');
 
 
@@ -26,7 +27,9 @@ router.get('/', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
     Character.find().skip(skip).limit(limit).then((doc) => {
@@ -37,7 +40,7 @@ router.get('/', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('Characters',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('Characters',{ items: prodcutGrid , page , theUser:TheUser ,userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -64,8 +67,9 @@ router.get('/batman', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
     
 
     Products.find({chara:'Bat Man'}).skip(skip).limit(limit).then((doc) => {
@@ -76,7 +80,7 @@ router.get('/batman', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -103,7 +107,9 @@ router.get('/spiderman', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
     Products.find({chara:'Spider Man'}).skip(skip).limit(limit).then((doc) => {
@@ -114,7 +120,7 @@ router.get('/spiderman', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser  })
+        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser  , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -141,7 +147,9 @@ router.get('/hxh', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
     Products.find({chara:'HxH'}).skip(skip).limit(limit).then((doc) => {
@@ -152,7 +160,7 @@ router.get('/hxh', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -178,7 +186,9 @@ router.get('/flash', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
     Products.find({chara:'Flash'}).skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -188,7 +198,7 @@ router.get('/flash', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -252,7 +262,9 @@ router.get('/barbie', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
     Products.find({chara:'Barbie'}).skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -262,7 +274,7 @@ router.get('/barbie', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -289,8 +301,9 @@ router.get('/transformers', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
-    
+    console.log(cart)
 
     Products.find({chara:'Transformers'}).skip(skip).limit(limit).then((doc) => {
         // console.log(doc)
@@ -300,7 +313,7 @@ router.get('/transformers', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page, theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page, theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -327,7 +340,9 @@ router.get('/darthvider', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
     Products.find({chara:'Darth Vader'}).skip(skip).limit(limit).then((doc) => {
@@ -338,7 +353,7 @@ router.get('/darthvider', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page , theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
@@ -365,7 +380,9 @@ router.get('/supergirl', async (req, res, next) => {
     console.log(userId);
 
     const TheUser = await Users.findById(userId)
+    const cart = await Cart.findById(userId)
     console.log(TheUser)
+    console.log(cart)
     
 
     Products.find({chara:'Super Girl'}).skip(skip).limit(limit).then((doc) => {
@@ -376,7 +393,7 @@ router.get('/supergirl', async (req, res, next) => {
             prodcutGrid.push(doc.slice(i, i + colGrid))
         }
         console.log(prodcutGrid)
-        res.render('singleCharacter',{ items: prodcutGrid , page, theUser:TheUser })
+        res.render('singleCharacter',{ items: prodcutGrid , page, theUser:TheUser , userCart:cart  })
     }).catch((err)=>{
         console.log(err)
     })
