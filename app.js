@@ -83,15 +83,15 @@ app.get('/emailUser', (req, res) => {
 
 
 app.get('/Home', (req, res) => {
-  res.redirect('https://toy-toon.onrender.com//#section_1');
+  res.redirect('https://toy-toon.onrender.com/#section_1');
 });
 
 app.get('/Offer', (req, res) => {
-  res.redirect('https://toy-toon.onrender.com//#section_2');
+  res.redirect('https://toy-toon.onrender.com/#section_2');
 });
 
 app.get('/ShopByAge', (req, res) => {
-  res.redirect('/https://toy-toon.onrender.com/#section_3');
+  res.redirect('https://toy-toon.onrender.com/#section_3');
 });
 
 app.get('/ShopBrandCharacter', (req, res) => {
@@ -103,7 +103,7 @@ app.get('/About', (req, res) => {
 });
 
 app.get('/ContactUs', (req, res) => {
-  res.redirect('https://toy-toon.onrender.com//#section_6');
+  res.redirect('https://toy-toon.onrender.com/#section_6');
 });
 
 
